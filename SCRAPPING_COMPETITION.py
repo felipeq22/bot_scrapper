@@ -25,8 +25,14 @@ def run_algo():
         if div_info and div_info.get_text(strip=True):  
             flags.append(div_info.get('id'))
 
-
+    
     featured_article_text = soup.find_all('div', class_='')
+    for i in range(7, 40):
+        class_name = f'flag-{i}'
+        div_info = soup.find('div', class_=class_name)
+        if div_info and div_info.get_text(strip=True):
+            flags.append(class_name)
+            
     return(flags)
 
 if __name__ == "__main__":
